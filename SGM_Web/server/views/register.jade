@@ -1,0 +1,53 @@
+extends layout
+
+block content
+  body.bg-gradient-primary
+    .container
+      .card.o-hidden.border-0.shadow-lg.my-5
+        .card-body.p-0
+          // Nested Row within Card Body
+          .row
+            .col-lg-5.d-none.d-lg-block.bg-register-image
+            .col-lg-7
+              .p-5
+                .text-center
+                  h1.h4.text-gray-900.mb-4 Criar uma conta!
+                form.user
+                  .form-group.row
+                    .col-sm-12.mb-3.mb-sm-0
+                      input#nome.form-control.form-control-user(type='text', placeholder='Nome')
+                  .form-group.row
+                    .col-sm-6.mb-3.mb-sm-0
+                      input#cnpj.form-control.form-control-user(type='text', placeholder='CNPJ')
+                    .col-sm-6.mb-3.mb-sm-0
+                      // LEMBRAR DE TRATAR O PRIMEIRO SELECT PARA NAO SER ENVIADO PARA O ENUM DA TABELA TIPO_USUARIO
+                      select#tipo_usuario.form-control
+                        option Tipo de Usuário
+                        option aluno
+                        option servidor
+                        option parceria
+                        option externo
+                  .form-group.row
+                    .col-sm-6.mb-3.mb-sm-0
+                      input#cpf.form-control.form-control-user(type='text', placeholder='CPF')
+                    .col-sm-6.mb-3.mb-sm-0
+                      input#matricula.form-control.form-control-user(type='text', placeholder='Matricula')
+                  .form-group.row
+                    .col-sm-6.mb-3.mb-sm-0
+                      input#senha.form-control.form-control-user(type='password', placeholder='Senha')
+                    .col-sm-6
+                      input#confirma-senha.form-control.form-control-user(type='password', placeholder='Confirme a Senha')
+                  a.btn.btn-primary.btn-user.btn-block(href='login.html')
+                    | Criar conta
+                hr
+                .text-center
+                  a.small(href='forgot-password.html') Recuperar a senha?
+                .text-center
+                  a.small(href='/login') Já tem uma conta? Faça login!
+    // Bootstrap core JavaScript
+    script(src='vendor/jquery/jquery.min.js')
+    script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')
+    // Core plugin JavaScript
+    script(src='vendor/jquery-easing/jquery.easing.min.js')
+    // Custom scripts for all pages
+    script(src='js/sb-admin-2.min.js')
