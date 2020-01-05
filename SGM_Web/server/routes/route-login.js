@@ -1,13 +1,12 @@
 var express = require('express');
-var router  = express.Router();
-var path    = require('path');
+var router = express.Router();
+var path = require('path');
 
-router.get('/', function(req, res, next){
-	
-  res.sendFile(path.join(__dirname, '..', 'public','login.html'));
-});
+router.get('/login', (req, res) => {
+	res.render("login")
+})
 
-router.get('/logar', function(req, res, next){
+router.get('/logar', function (req, res, next) {
 	console.log('redirect');
 	res.redirect('/dashboard');
 });
