@@ -13,7 +13,17 @@ var route_register_seedling = require("./routes/route-register-seedling");
 var route_allow_register = require("./routes/route-allow-register");
 var root_router = require('./routes/route-root');
 
+const connection = require('./config/database')
+
 var app = express();
+
+//  connection with database
+app.use((req, res, next) => {
+  req.con = connection;
+  console.log("Conexao estabelecida com sucesso")
+  next()
+})
+
 
 // Configuração das views
 app.set("views", path.join(__dirname, "views"));
@@ -34,6 +44,7 @@ app.use(route_requisicao);
 app.use("/registerseedling", route_register_seedling);
 app.use(route_allow_register);
 app.use(root_router);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

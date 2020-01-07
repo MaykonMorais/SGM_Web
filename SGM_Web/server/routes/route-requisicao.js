@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var path = require('path');
 
-router.get("/requisicao", (req, res) => {
-  res.render("requests")
-})
+const mudasController = require('../controllers/mudasController')
+
+router.get("/requisicao", mudasController.showMudas);
+
 
 module.exports = router;
