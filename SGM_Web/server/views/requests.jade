@@ -197,6 +197,7 @@ block content
                   button#button-addon2.btn.btn-primary(type='button')
                     i.fas.fa-search.fa-sm
             .table-responsive
+            form(action="/requisicao" method="POST")
               table.table.table-hover.table-striped
                 thead
                   tr.text-center
@@ -207,34 +208,17 @@ block content
                     th(scope='col') Quantidade requisitada
                     th(scope='col') Selecionar
                 tbody
-                  tr.text-center
-                    th(scope='row') 1
-                    td Maracuja
-                    td 81
-                    td Frutífera
-                    td
-                      input#qtd.form-control.col-lg-4(type='number', min='1', max='10000')
-                    td
-                      input#exampleCheck1.form-check-input(type='checkbox')
-                  tr.text-center
-                    th(scope='row') 1
-                    td Manga
-                    td 3
-                    td Frutífera
-                    td
-                      input#qtd.form-control.col-lg-4(type='number', min='1', max='10000')
-                    td
-                      input#exampleCheck1.form-check-input(type='checkbox')
-                  tr.text-center
-                    th(scope='row') 1
-                    td Beterraba
-                    td 2318
-                    td Frutífera
-                    td
-                      input#qtd.form-control.col-lg-4(type='number', min='1', max='10000')
-                    td
-                      input#exampleCheck1.form-check-input(type='checkbox')
-            button.btn.btn-primary(type='button') Pedir
+                  each muda in mudas
+                    tr.text-center
+                          td #{muda.idmuda}
+                            td #{muda.nome}
+                            td #{muda.estoque_atual}
+                            td #{muda.tipo_unitario}               
+                          td
+                            input#qtd.form-control.col-lg-4(name='requestsQtdMuda',type='number', min='1', max='10000')
+                          td
+                            input#exampleCheck1.form-check-input(name='selectedMuda',value='#{muda.idmuda}',checked=false,type='checkbox')
+              button.btn.btn-primary(type='submit') Pedir
           // /.container-fluid
           // End of Main Content
           // Footer
