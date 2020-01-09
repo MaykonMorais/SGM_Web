@@ -5,7 +5,6 @@ const mudasController = require('../controllers/mudasController')
 const requisicao = require('../controllers/requisicaoController')
 
 router.get("/requisicao", mudasController.showMudas);
-router.post("/requisicao", mudasController.showRequest)
+router.post("/requisicao", requisicao.insertRequest);
 
-
-module.exports = router;
+module.exports = router; 
