@@ -191,21 +191,24 @@ block content
           // End of Topbar
           // Begin Page Content
           .container-fluid
+            form(action="/registerSeedling" method="POST")
             .row.lg-12
               form.form-inline
                 .form-group.mx-sm-3.mb-2
-                  label.sr-only(for='name') Senha
-                  input#name.form-control(type='text', placeholder='Nome da muda')
+                  label(for='nome') Nome
+                  input#name.form-control(name="nome", type='text', placeholder='Nome da muda')
                 .form-group.mx-sm-3.mb-2
-                  label.sr-only(for='valor') Valor de custo
-                  input#valor.form-control(type='number', placeholder='Valor de custo')
+                  label(for='valor') Valor de custo
+                  input#valor.form-control(name="valor", type='number', placeholder='Valor de custo')
                 .form-group
-                  label(for='tipo-unitario') Tipo unitário
-                  select#tipo-unitario.form-control
-                    option nativa-muda
-                    option ornamental
-                    option fruteira-muda
-                    option medicinal
+                  label(for='tipoUnitario') Tipo unitário
+                  select#tipo-unitario.form-control(name="tipoUnitario")
+                    option(value="nativa-muda") nativa-muda
+                    option(value="ornamental") ornamental
+                    option(value="fruteira-muda") fruteira-muda
+                    option(value="medicinal") medicinal
+                
+                <button style="margin-left: 20px" type="submit" class="btn btn-success">Adicionar</button>
                 //
                   <div class="form-group mx-sm-3 mb-2">
                   <label for="inputPassword2" class="sr-only">Senha</label>

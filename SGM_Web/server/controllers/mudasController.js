@@ -10,5 +10,11 @@ module.exports = {
     mudasModel.showMudas(req.con, function (err, rows) {
       res.json(req.body);
     })
+  },
+  addMuda: function (req, res) {
+
+    /*mudasModel.insertMuda(muda, req.con, (err, rows) => {
+      res.redirect('registerSeedling')
+    })*/
   }
 }
