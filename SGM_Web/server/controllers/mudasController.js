@@ -12,10 +12,20 @@ module.exports = {
     })
   },
   addMuda: function (req, res) {
-    console.log(req.body);
-    /*mudasModel.insertMuda(muda, req.con, (err, rows) => {
-      res.redirect('registerSeedling')
-    })*/
+    const state = {
+      nome: req.body.nome,
+      tipoUnitario: req.body.tipo_unitario,
+      valor: req.body.valor_unitario,
+      estoqueMinimo: req.body.estoque_minimo,
+      estoqueAtual: req.body.estoque_atual,
+    }
+
+    mudasModel.insertMuda(state, req.con, (err, rows) => {
+      if (err) {
+        alert("Algum erro ocorreu!")
+      }
+    })
+    res.redirect('registerSeedling');
   },
   renderAddMudaPage: function (req, res) {
     res.render('registerSeedling')
