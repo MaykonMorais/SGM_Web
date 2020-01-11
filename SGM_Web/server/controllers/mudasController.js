@@ -12,9 +12,12 @@ module.exports = {
     })
   },
   addMuda: function (req, res) {
-
+    console.log(req.body);
     /*mudasModel.insertMuda(muda, req.con, (err, rows) => {
       res.redirect('registerSeedling')
     })*/
+  },
+  renderAddMudaPage: function (req, res) {
+    res.render('registerSeedling')
   }
 }
