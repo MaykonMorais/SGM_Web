@@ -191,26 +191,36 @@ block content
           // End of Topbar
           // Begin Page Content
           .container-fluid
-            .row.lg-12
-              form.form-inline
-                .form-group.mx-sm-3.mb-2
-                  label.sr-only(for='name') Senha
-                  input#name.form-control(type='text', placeholder='Nome da muda')
-                .form-group.mx-sm-3.mb-2
-                  label.sr-only(for='valor') Valor de custo
-                  input#valor.form-control(type='number', placeholder='Valor de custo')
-                .form-group
-                  label(for='tipo-unitario') Tipo unitário
-                  select#tipo-unitario.form-control
-                    option nativa-muda
-                    option ornamental
-                    option fruteira-muda
-                    option medicinal
-                //
-                  <div class="form-group mx-sm-3 mb-2">
-                  <label for="inputPassword2" class="sr-only">Senha</label>
-                  <input type="password" class="form-control" id="inputPassword2" placeholder="Senha">
-                  </div>
+              form(action="/registerseedling" method="POST")
+                .form-row
+                  .form-group.col-md-6
+                    label(for='nome') Nome
+                    input#nome.form-control(name="nome",type='text', placeholder='Ex: Manga')
+                  .form-group.col-md-6
+                    label.my-1.mr-2(for='tipo_unitario') Tipo da Muda
+                    select#tipo_unitario.custom-select.my-1(name="tipo_unitario")
+                      option(value='nativa-muda') Nativa-Muda
+                      option(value='ornamental') Ornamental
+                      option(value='fruteira-muda') Fruteira-Muda
+                      option(value='medicinal') Medicinal
+                .form-row
+                  .form-group.col-md-3
+                    label(for='valor_unitario') Valor Unitário
+                    .input-group.mb-3
+                      .input-group-prepend
+                        span.input-group-text R$
+                      input#valor_unitario.form-control(name='valor_unitario', type='number', step="0.01",aria-label='Amount (to the nearest Real)')
+                      .input-group-append
+                        span.input-group-text .00
+                  .form-group.col-md-4
+                    label(for='estoque_atual') Estoque Atual
+                    input#quantidade.form-control(style='margin-left: 5px;', name='estoque_atual', type='number', placeholder='Ex: 20')
+                  .form-group.col-md-5
+                    label(for="estoque_minimo") Estoque Mínimo
+                    input#estoque_minimo.form-control(name="estoque_minimo", type="number", placeholder="Ex: 20")
+                .row.justify-content-center
+                  button.btn.btn-success.btn-lg.btn-block(type='submit', style='width: 30%;') Adicionar
+
             // <button type="submit" class="btn btn-primary mb-2">Confirmar identidade</button>
             // /.container-fluid
             // End of Main Content

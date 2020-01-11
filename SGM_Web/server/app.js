@@ -41,7 +41,7 @@ app.use(route_dashboard);
 
 app.use(route_charts);
 app.use(route_requisicao);
-app.use("/registerseedling", route_register_seedling);
+app.use(route_register_seedling);
 app.use(route_allow_register);
 app.use(root_router);
 
