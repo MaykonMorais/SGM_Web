@@ -218,7 +218,20 @@ block content
                             input#qtd.form-control.col-lg-4(name='requestsQtdMuda',type='number', min='1', max='10000')
                           td
                             input#exampleCheck1.form-check-input(name='selectedMuda',value='#{muda.idmuda}',checked=false,type='checkbox')
-              button.btn.btn-primary(type='submit') Pedir
+              button.btn.btn-primary.add(type='button') Pedir
+
+              #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+                  .modal-dialog(role='document')
+                    .modal-content
+                      .modal-header
+                        h5#exampleModalLabel.modal-title Confirmação
+                        button.close(type='button', data-dismiss='modal', aria-label='Close')
+                          span(aria-hidden='true') ×
+                      .modal-body
+                        | Deseja adicionar realmente? 
+                      .modal-footer
+                        button.btn.btn-secondary(type='button', data-dismiss='modal') Fechar
+                        button.btn.btn-success(type='submit') Confirmar
           // /.container-fluid
           // End of Main Content
           // Footer
@@ -251,3 +264,10 @@ block content
           script(src='vendor/jquery-easing/jquery.easing.min.js')
           // Custom scripts for all pages
           script(src='js/sb-admin-2.min.js')
+
+          script.
+              $(document).ready(function(){
+                $(".add").click(function(){
+                 $("#myModal").modal("show");
+                });
+              });

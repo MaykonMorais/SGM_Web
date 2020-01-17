@@ -219,23 +219,32 @@ block content
                     label(for="estoque_minimo") Estoque Mínimo
                     input#estoque_minimo.form-control(name="estoque_minimo", type="number", placeholder="Ex: 20")
                 .row.justify-content-center
-                  button.btn.btn-success.btn-lg.btn-block(type='submit', style='width: 30%;') Adicionar
+                  button.btn.btn-success.btn-lg.btn-block.add(type='button', style='width: 30%;') Adicionar
+                
+                #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+                  .modal-dialog(role='document')
+                    .modal-content
+                      .modal-header
+                        h5#exampleModalLabel.modal-title Confirmação
+                        button.close(type='button', data-dismiss='modal', aria-label='Close')
+                          span(aria-hidden='true') ×
+                      .modal-body
+                        | Deseja adicionar realmente? 
+                      .modal-footer
+                        button.btn.btn-secondary(type='button', data-dismiss='modal') Fechar
+                        button.btn.btn-success(type='submit') Confirmar
 
-            // <button type="submit" class="btn btn-primary mb-2">Confirmar identidade</button>
-            // /.container-fluid
-            // End of Main Content
-            // Footer
             footer.sticky-footer.bg-white
               .container.my-auto
                 .copyright.text-center.my-auto
                   span Copyright © Your Website 2019
-            // End of Footer
-            // End of Content Wrapper
-            // End of Page Wrapper
-            // Scroll to Top Button
+              // End of Footer
+              // End of Content Wrapper
+              // End of Page Wrapper
+              // Scroll to Top Button
             a.scroll-to-top.rounded(href='#page-top')
               i.fas.fa-angle-up
-            // Logout Modal
+              // Logout Modal
             #logoutModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
               .modal-dialog(role='document')
                 .modal-content
@@ -247,10 +256,21 @@ block content
                   .modal-footer
                     button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
                     a.btn.btn-primary(href='login.html') Logout
-            // Bootstrap core JavaScript
+              // Bootstrap core JavaScript
             script(src='vendor/jquery/jquery.min.js')
-            script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')
-            // Core plugin JavaScript
             script(src='vendor/jquery-easing/jquery.easing.min.js')
-            // Custom scripts for all pages
+
+            script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')
+              // Core plugin JavaScript
+            script(src='vendor/jquery-easing/jquery.easing.min.js')
+              // Custom scripts for all pages
+            
             script(src='js/sb-admin-2.min.js')
+            
+            script.
+              $(document).ready(function(){
+                $(".add").click(function(){
+                 $("#myModal").modal("show");
+                });
+              });
+
