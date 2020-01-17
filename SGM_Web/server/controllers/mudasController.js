@@ -29,5 +29,8 @@ module.exports = {
   },
   renderAddMudaPage: function (req, res) {
     res.render('registerSeedling')
+  },
+  updateMuda: (req, res) => {
+    res.render('updateMuda')
   }
 }
