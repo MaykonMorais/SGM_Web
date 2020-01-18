@@ -21,7 +21,7 @@ var app = express();
 //  connection with database
 app.use((req, res, next) => {
   req.con = connection;
-  console.log("Conexao estabelecida com sucesso")
+  //console.log("Conexao estabelecida com sucesso")
   next()
 })
 
