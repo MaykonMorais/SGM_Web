@@ -45,8 +45,27 @@ module.exports = {
 
     mudasModel.searchMuda(muda, req.con, (err, rows) => {
       const result = JSON.parse(JSON.stringify(rows));
-      console.log(result[0])
-      res.render('updateMuda', { muda: result[0] })
+
+      if (result[0] != undefined) {
+        res.render('updateMuda', { muda: result[0] })
+      }
+
+      else {
+
+        mudaEncontrada = {
+          idmuda: 0,
+          nome: 'undefined',
+          valor: 0,
+          tipo_unitario: '',
+          estoque_minimo: 0,
+          estoque_atual: 0
+        };
+
+        res.render('updateMuda', { muda: mudaEncontrada })
+
+      };
+
+
     })
   }
 }
