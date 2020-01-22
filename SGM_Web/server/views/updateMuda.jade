@@ -195,6 +195,9 @@ block content
               form(action="/updateMuda" method="POST")
                 .form-row
                   .form-group.col-md-6
+                    label(for="idmuda") 
+                    input#idmuda.form-control(name="idmuda", value='#{muda.idmuda}',type='hidden')
+                    //input#id(type="number", value='#{muda.idmuda}', disable='')
                     label(for='nome') Nome
                     input#nome.form-control(name="nome", value='#{muda.nome}',type='text', placeholder='Ex: Manga')
                   .form-group.col-md-6
@@ -220,7 +223,7 @@ block content
                     label(for="estoque_minimo") Estoque Mínimo
                     input#estoque_minimo.form-control(name="estoque_minimo", value='#{muda.estoque_minimo|| undefined}', type="number", placeholder="Ex: 20")
                 .row.justify-content-center
-                  button.btn.btn-success.btn-lg.btn-block.add(type='button', style='width: 30%;') Adicionar
+                  button.btn.btn-success.btn-lg.btn-block.add(type='submit', style='width: 30%;') Adicionar
             
             // End of Main Content
             // Footer

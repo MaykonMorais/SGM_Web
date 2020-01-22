@@ -9,7 +9,7 @@ module.exports = {
     }
 
     //console.log("tamanho do array: ", qtd);
-    console.log(req.body)
+    //console.log(req.body)
     for (let i = 0; i < qtd; i++) {
       const reqActual = {
         idAdmin: 1,

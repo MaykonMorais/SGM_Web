@@ -35,7 +35,26 @@ module.exports = {
     res.render('registerSeedling')
   },
 
+  renderUpdateMuda: (req, res) => {
+    res.render('updateMuda', { muda: [] })
+  },
+
   updateMuda: (req, res) => {
+    const state = {
+      idMuda: req.body.idmuda,
+      nome: req.body.nome,
+      tipoUnitario: req.body.tipo_unitario,
+      valor: req.body.valor_unitario,
+      estoqueMinimo: req.body.estoque_minimo,
+      estoqueAtual: req.body.estoque_atual,
+    }
+
+    console.log('Estou passando para atualizar: ', req.body)
+    mudasModel.updateMuda(state, req.con, (err, rows) => {
+      if (err) {
+        console.log(err)
+      }
+    })
     res.render('updateMuda', { muda: [] })
   },
 
@@ -47,25 +66,21 @@ module.exports = {
       const result = JSON.parse(JSON.stringify(rows));
 
       if (result[0] != undefined) {
+        //console.log(result[0])
         res.render('updateMuda', { muda: result[0] })
       }
 
       else {
-
         mudaEncontrada = {
-          idmuda: 0,
+          idMuda: 0,
           nome: 'undefined',
           valor: 0,
           tipo_unitario: '',
           estoque_minimo: 0,
           estoque_atual: 0
         };
-
         res.render('updateMuda', { muda: mudaEncontrada })
-
       };
-
-
     })
   }
 }

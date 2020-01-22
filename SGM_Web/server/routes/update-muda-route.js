@@ -5,13 +5,12 @@ const mudaController = require('../controllers/mudasController')
 
 router.get('/updateMuda', (req, res) => {
   if (req.query.nome == undefined) {
-    console.log('Entrei inicial')
-    mudaController.updateMuda(req, res);
+    mudaController.renderUpdateMuda(req, res);
   }
   else {
-    console.log('Entrei na rota para procura')
     mudaController.searchMuda(req, res)
   }
 })
+router.post('/updateMuda', mudaController.updateMuda)
 
 module.exports = router;
