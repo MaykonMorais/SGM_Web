@@ -22,8 +22,6 @@ module.exports = {
         reqActual.qtdMuda = req.body.requestsQtdMuda[i + 1];
       }
 
-      console.log("adicionando; ", reqActual);
-
       requisicaoModel.insertRequest(reqActual, req.con, function (err, result) {
         if (err) {
           allert("Ops! Algo de errado aconteceu!");

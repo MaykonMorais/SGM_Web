@@ -34,11 +34,11 @@ module.exports = {
   renderAddMudaPage: function (req, res) {
     res.render('registerSeedling')
   },
-
+  // renderiza pagina de update
   renderUpdateMuda: (req, res) => {
     res.render('updateMuda', { muda: [] })
   },
-
+  // realiza update 
   updateMuda: (req, res) => {
     const state = {
       idMuda: req.body.idmuda,
@@ -49,7 +49,6 @@ module.exports = {
       estoqueAtual: req.body.estoque_atual,
     }
 
-    console.log('Estou passando para atualizar: ', req.body)
     mudasModel.updateMuda(state, req.con, (err, rows) => {
       if (err) {
         console.log(err)
@@ -58,7 +57,7 @@ module.exports = {
     res.render('updateMuda', { muda: [] })
   },
 
-  // analisar
+  // realiza procura
   searchMuda: (req, res) => {
     const muda = { nome: req.query.nome }
 
@@ -66,8 +65,11 @@ module.exports = {
       const result = JSON.parse(JSON.stringify(rows));
 
       if (result[0] != undefined) {
-        //console.log(result[0])
-        res.render('updateMuda', { muda: result[0] })
+        if (req.path === '/updateMuda') {
+          res.render('updateMuda', { muda: result[0] })
+        } else if (req.path === '/removeMuda') {
+          res.render('removeMuda', { muda: result[0] })
+        }
       }
 
       else {
@@ -79,8 +81,32 @@ module.exports = {
           estoque_minimo: 0,
           estoque_atual: 0
         };
-        res.render('updateMuda', { muda: mudaEncontrada })
+
+        if (req.path == '/removeMuda') {
+          res.render('removeMuda', { muda: mudaEncontrada })
+        }
+        else {
+          res.render('updateMuda', { muda: mudaEncontrada })
+        }
       };
     })
+  },
+
+  renderRemovePage: (req, res) => {
+    res.render('removeMuda', { muda: [] })
+  },
+
+  removeMuda: (req, res) => {
+    //console.log('removendo ', req)
+    const state = {
+      idMuda: req.body.idmuda
+    };
+
+    mudasModel.removeMuda(state, req.con, (err, rows) => {
+      if (err) {
+        console.log(err)
+      }
+    })
+    res.render('removeMuda', { muda: [] })
   }
 }
