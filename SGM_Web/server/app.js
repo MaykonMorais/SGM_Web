@@ -13,6 +13,7 @@ const route_register_seedling = require("./routes/route-register-seedling");
 const route_allow_register = require("./routes/route-allow-register");
 const root_router = require('./routes/route-root');
 const route_update_muda = require('./routes/update-muda-route')
+const route_delete_muda = require('./routes/delete-muda-route')
 
 const connection = require('./config/database')
 
@@ -45,6 +46,7 @@ app.use(route_requisicao);
 app.use(route_register_seedling);
 app.use(route_allow_register);
 app.use(root_router);
+app.use(route_delete_muda)
 
 
 // catch 404 and forward to error handler
