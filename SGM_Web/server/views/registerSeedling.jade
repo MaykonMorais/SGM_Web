@@ -17,7 +17,7 @@ block content
         hr.sidebar-divider.my-0
         // Nav Item - Dashboard
         li.nav-item.active
-          a.nav-link(href='/')
+          a.nav-link(href='/dashboard')
             i.fas.fa-fw.fa-tachometer-alt
             span Dashboard
         // Divider
@@ -26,17 +26,14 @@ block content
         li.nav-item
           a.nav-link.collapsed(href='#', data-toggle='collapse', data-target='#collapsePages', aria-expanded='true', aria-controls='collapsePages')
             i.fas.fa-fw.fa-folder
-            span Pages
+            span Mudas
           #collapsePages.collapse(aria-labelledby='headingPages', data-parent='#accordionSidebar')
             .bg-white.py-2.collapse-inner.rounded
-              h6.collapse-header Login Screens:
-              a.collapse-item(href='login.html') Login
-              a.collapse-item(href='register.html') Register
-              a.collapse-item(href='forgot-password.html') Forgot Password
+              h6.collapse-header Ações Mudas:
+              a.collapse-item(href='/registerseedling') Adicionar Muda
+              a.collapse-item(href='/updateMuda') Editar Muda
+              a.collapse-item(href='/removeMuda') Remover Muda
               .collapse-divider
-              h6.collapse-header Other Pages:
-              a.collapse-item(href='404.html') 404 Page
-              a.collapse-item(href='blank.html') Blank Page
         // Nav Item - Charts
         li.nav-item
           a.nav-link(href='/charts')

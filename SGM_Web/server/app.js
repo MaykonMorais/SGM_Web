@@ -4,14 +4,15 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 //var logger = require("morgan");
-var route_login = require("./routes/route-login");
-var route_register = require("./routes/route-register");
-var route_dashboard = require("./routes/route-dashboard");
-var route_charts = require("./routes/route-charts");
-var route_requisicao = require("./routes/route-requisicao");
-var route_register_seedling = require("./routes/route-register-seedling");
-var route_allow_register = require("./routes/route-allow-register");
-var root_router = require('./routes/route-root');
+const route_login = require("./routes/route-login");
+const route_register = require("./routes/route-register");
+const route_dashboard = require("./routes/route-dashboard");
+const route_charts = require("./routes/route-charts");
+const route_requisicao = require("./routes/route-requisicao");
+const route_register_seedling = require("./routes/route-register-seedling");
+const route_allow_register = require("./routes/route-allow-register");
+const root_router = require('./routes/route-root');
+const route_update_muda = require('./routes/update-muda-route')
 
 const connection = require('./config/database')
 
@@ -20,7 +21,7 @@ var app = express();
 //  connection with database
 app.use((req, res, next) => {
   req.con = connection;
-  console.log("Conexao estabelecida com sucesso")
+  //console.log("Conexao estabelecida com sucesso")
   next()
 })
 
@@ -38,7 +39,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(route_login);
 app.use(route_register);
 app.use(route_dashboard);
-
+app.use(route_update_muda)
 app.use(route_charts);
 app.use(route_requisicao);
 app.use(route_register_seedling);

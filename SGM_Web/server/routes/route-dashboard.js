@@ -1,14 +1,7 @@
-var express = require('express');
-var router = express.Router();
-var path = require('path');
+const express = require('express');
+const router = express.Router();
+const dashBoardController = require('../controllers/dashboardController')
 
-router.get("/", (req, res) => {
-	res.render("dashboard")
-})
-
-/*router.post('/', function (req, res, next) {
-	res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
-});*/
-
+router.get("/dashboard", dashBoardController.renderDashboard)
 
 module.exports = router;
