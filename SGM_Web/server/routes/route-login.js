@@ -1,14 +1,9 @@
-var express = require('express');
-var router = express.Router();
-var path = require('path');
+const express = require('express');
+const router = express.Router();
 
-router.get('/login', (req, res) => {
-	res.render("login")
-})
+const loginController = require('../controllers/loginController')
 
-router.get('/logar', function (req, res, next) {
-	console.log('redirect');
-	res.redirect('/dashboard');
-});
+router.get('/login', loginController.renderLoginPage)
+router.post('/login', loginController.login)
 
 module.exports = router;

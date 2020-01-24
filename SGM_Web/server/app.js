@@ -3,6 +3,7 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
+const session = require('express-session')
 //var logger = require("morgan");
 const route_login = require("./routes/route-login");
 const route_register = require("./routes/route-register");
@@ -14,6 +15,9 @@ const route_allow_register = require("./routes/route-allow-register");
 const root_router = require('./routes/route-root');
 const route_update_muda = require('./routes/update-muda-route')
 const route_delete_muda = require('./routes/delete-muda-route')
+const passport = require('passport')
+require('./config/auth')(passport)
+const flash = require('connect-flash');
 
 const connection = require('./config/database')
 
@@ -26,6 +30,16 @@ app.use((req, res, next) => {
   next()
 })
 
+// criar session
+app.use(session({
+  secret: 'session-auth',
+  resave: true,
+  saveUninitialized: true
+}))
+
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()) // usando flash
 
 // Configuração das views
 app.set("views", path.join(__dirname, "views"));
@@ -65,4 +79,4 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
-module.exports = app;
+module.exports = app, passport;

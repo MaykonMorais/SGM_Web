@@ -16,30 +16,18 @@ block content
                   .p-5
                     .text-center
                       h1.h4.text-gray-900.mb-4 Bem-Vindo(a)
-                    |                   
-                    form.user(action='/dashboard', method='post')
+
+                    if message && message.length
+                      strong #{message}              
+                    form.user(action='/login', method='POST')
                       .form-group
-                        input.form-control.form-control-user(type='text', name='id', aria-describedby='matriculaHelp', placeholder='Matricula/CPF/CNPJ')
+                        label(for="matricula")
+                        input#matricula.form-control.form-control-user(name="matricula",type='text', aria-describedby='matricula', placeholder='Matricula/CPF/CNPJ')
                       |                     
                       .form-group
-                        input.form-control.form-control-user(type='password', name='senha', placeholder='Senha')
-                      // Ajustar aos niveis corretos de acordo com o excel
-                      .form-group
-                        select.form-control(name='nivel')
-                          option Aluno
-                          |                         
-                          option Externo - Ufersa
-                          |                         
-                          option Interno - Ufersa
-                          |                         
-                          option Externo - Doa&ccedil;&atilde;o
-                      |                     
-                      .form-group
-                        .custom-control.custom-checkbox.small
-                          input#customCheck.custom-control-input(type='checkbox')
-                          |                         
-                          label.custom-control-label(for='customCheck') Manter-me conectado
-                      |                     
+                        label(for="password")
+                        input#password.form-control.form-control-user(type='password', name='password', placeholder='Senha')
+                      // Ajustar aos niveis corretos de acordo com o excel                     
                       button.btn.btn-primary.btn-user.btn-block(type='submit')
                         | Login
                     |                   

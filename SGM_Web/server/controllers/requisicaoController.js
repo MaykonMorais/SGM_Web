@@ -2,6 +2,8 @@ const requisicaoModel = require('../models/requisicaoModel')
 
 module.exports = {
   insertRequest: function (req, res) {
+    console.log(req.body)
+
     let qtd = req.body.selectedMuda.length;
 
     if (!Array.isArray(req.body.selectedMuda)) {
