@@ -4,6 +4,8 @@ Todo o ambiente é feito na plataforma do javascript. Sendo assim, baixe o nodej
 
 Para testar nossa base de dados(mysql) importe o código .sql para seu banco que está localizado em: `database/banco_oficial.sql`
 
+Configure o banco seu banco criando  em `server/config/database.js`
+
 ## Rodar Sistema
  - Entre no diretório `server`
  - Instale todos os pacotes necessários: `npm install`
