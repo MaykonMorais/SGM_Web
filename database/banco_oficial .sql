@@ -96,7 +96,7 @@ CREATE TABLE `muda` (
 
 LOCK TABLES `muda` WRITE;
 /*!40000 ALTER TABLE `muda` DISABLE KEYS */;
-INSERT INTO `muda` VALUES (2936,'macambira',1.2,'fruteira-muda',40,20),(2937,'Hortelã',15,'ornamental',15,15);
+INSERT INTO `muda` VALUES (2936,'Laranja',1.2,'fruteira-muda',40,20);
 /*!40000 ALTER TABLE `muda` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -165,7 +165,6 @@ CREATE TABLE `requisicao_muda` (
 
 LOCK TABLES `requisicao_muda` WRITE;
 /*!40000 ALTER TABLE `requisicao_muda` DISABLE KEYS */;
-INSERT INTO `requisicao_muda` VALUES (72,'N','2020-01-24 00:00:00',1,2936,4,2),(73,'N','2020-01-24 00:00:00',1,2936,4,20);
 /*!40000 ALTER TABLE `requisicao_muda` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -274,4 +273,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-24 23:28:46
+-- Dump completed on 2020-01-24 23:45:53
