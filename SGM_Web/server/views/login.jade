@@ -9,11 +9,10 @@ block content
           .card.o-hidden.border-0.shadow-lg.my-5
             .card-body.p-0
               // Nested Row within Card Body
-              .row
-                .col-lg-6.d-none.d-lg-block.bg-login-image
-                |               
+              .row.justify-content-center
+                               
                 .col-lg-6
-                  .p-5
+                  .p-5  
                     .text-center
                       h1.h4.text-gray-900.mb-4 Bem-Vindo(a)
 
@@ -22,7 +21,7 @@ block content
                     form.user(action='/login', method='POST')
                       .form-group
                         label(for="matricula")
-                        input#matricula.form-control.form-control-user(name="matricula",type='text', aria-describedby='matricula', placeholder='Matricula/CPF/CNPJ')
+                        input#matricula.form-control.form-control-user(name="matricula",type='text', aria-describedby='matricula', placeholder='Matricula')
                       |                     
                       .form-group
                         label(for="password")
@@ -34,7 +33,7 @@ block content
                     hr
                     |                   
                     .text-center
-                      a.small(href='forgot-password.html') Esquesceu a senha?
+                      a.small(href='forgot-password.html') Esqueceu a senha?
                     |                   
                     .text-center
                       a.small(href='/register') Criar uma conta!

@@ -188,9 +188,6 @@ block content
               // Page Heading
               h1.h3.mb-2.text-gray-800 Gráficos
               p.mb-4
-                | documentation 
-                a(target='_blank', href='https://www.chartjs.org/docs/latest/') official Chart.js documentation
-                | .
               // Content Row
               .row
                 .col-xl-8.col-lg-7
@@ -202,9 +199,7 @@ block content
                       .chart-area
                         canvas#myAreaChart
                       hr
-                      |                     Styling for the area chart can be found in the 
-                      code /js/demo/chart-area-demo.js
-                      |  file.
+                      
                   // Bar Chart
                   .card.shadow.mb-4
                     .card-header.py-3
@@ -213,9 +208,7 @@ block content
                       .chart-bar
                         canvas#myBarChart
                       hr
-                      |                     Styling for the bar chart can be found in the 
-                      code /js/demo/chart-bar-demo.js
-                      |  file.
+                      
                 //
                   <div class="col-xl-4 col-lg-5">
                   <div class="card shadow mb-4">
@@ -255,7 +248,7 @@ block content
                   .modal-body Select "Logout" below if you are ready to end your current session.
                   .modal-footer
                     button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
-                    a.btn.btn-primary(href='login.html') Logout
+                    a.btn.btn-primary(href='/login') Logout
             // Bootstrap core JavaScript
             script(src='vendor/jquery/jquery.min.js')
             script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')

@@ -2,13 +2,19 @@ const requisicaoModel = require('../models/requisicaoModel')
 
 module.exports = {
   insertRequest: function (req, res) {
-    console.log(req.body)
-
     let qtd = req.body.selectedMuda.length;
 
     if (!Array.isArray(req.body.selectedMuda)) {
       qtd = 1;
     }
+    else {
+      for (var i = qtd - 1; i >= 0; i--) {
+        if (req.body.requestsQtdMuda[i] === '') {
+          req.body.requestsQtdMuda.splice(i, 1);
+        }
+      }
+    }
+    console.log(req.body)
 
     //console.log("tamanho do array: ", qtd);
     //console.log(req.body)
@@ -20,13 +26,9 @@ module.exports = {
         qtdMuda: req.body.requestsQtdMuda[i] // vetor
       }
 
-      if (reqActual.qtdMuda == '') { // recebe o proximo
-        reqActual.qtdMuda = req.body.requestsQtdMuda[i + 1];
-      }
-
       requisicaoModel.insertRequest(reqActual, req.con, function (err, result) {
         if (err) {
-          allert("Ops! Algo de errado aconteceu!");
+          console.log(err);
         }
       })
     }
