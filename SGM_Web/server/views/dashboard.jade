@@ -30,7 +30,6 @@ block content
           #collapsePages.collapse(aria-labelledby='headingPages', data-parent='#accordionSidebar')
             .bg-white.py-2.collapse-inner.rounded
               h6.collapse-header Ações Mudas:
-                a.collapse-item(href='/registerseedling') Adicionar Muda
                 a.collapse-item(href='/updateMuda') Editar Muda
                 a.collapse-item(href='/removeMuda') Remover Muda
         // Nav Item - Charts
@@ -280,7 +279,7 @@ block content
                 .modal-body Select "Logout" below if you are ready to end your current session.
                 .modal-footer
                   button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
-                  a.btn.btn-primary(href='login.html') Logout
+                  a.btn.btn-primary(href='/login') Logout
           // Bootstrap core JavaScript
           script(src='vendor/jquery/jquery.min.js')
           script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')

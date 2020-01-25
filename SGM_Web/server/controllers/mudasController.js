@@ -3,7 +3,6 @@ const mudasModel = require('../models/mudasModel')
 module.exports = {
   showMudas: function (req, res) {
     mudasModel.showMudas(req.con, function (err, rows) {
-      console.log(rows)
       res.render("requests", { mudas: rows })
     })
   },
@@ -49,6 +48,7 @@ module.exports = {
       estoqueAtual: req.body.estoque_atual,
     }
 
+    console.log('atualizando', state)
     mudasModel.updateMuda(state, req.con, (err, rows) => {
       if (err) {
         console.log(err)
@@ -97,7 +97,7 @@ module.exports = {
   },
 
   removeMuda: (req, res) => {
-    //console.log('removendo ', req)
+
     const state = {
       idMuda: req.body.idmuda
     };
